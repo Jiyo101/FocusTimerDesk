@@ -1,0 +1,154 @@
+﻿<Window x:Class="FocusTimerDesk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FocusTimer Desk"
+        MinHeight="400"
+        MinWidth="600"
+        Background="#020617"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- Escala todo el contenido al cambiar el tamaño de la ventana -->
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+
+        <!-- Contenedor base -->
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- CABECERA -->
+            <StackPanel Grid.Row="0" Margin="0 5 0 20">
+                <TextBlock Text="FocusTimer Desk"
+                           Foreground="#E5E7EB"
+                           FontSize="40"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="Gestiona tus sesiones de concentración y descansos"
+                           Foreground="#9CA3AF"
+                           FontSize="20"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- ZONA CENTRAL -->
+            <StackPanel Grid.Row="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                <!-- Modo actual -->
+                <TextBlock x:Name="ModeText"
+                           Text="Modo: Trabajo"
+                           Foreground="#9CA3AF"
+                           FontSize="24"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 10"/>
+
+                <!-- Temporizador -->
+                <TextBlock x:Name="TimerText"
+                           Text="25:00"
+                           Foreground="#22E4AC"
+                           FontSize="120"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 20"/>
+
+                <!-- Botones principales -->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0 20 0 20">
+                    <Button x:Name="StartButton"
+                            Content="Iniciar"
+                            Width="180"
+                            Height="60"
+                            Margin="8"
+                            FontSize="22"
+                            Click="StartButton_Click"/>
+                    <Button x:Name="PauseButton"
+                            Content="Pausar"
+                            Width="180"
+                            Height="60"
+                            Margin="8"
+                            FontSize="22"
+                            Click="PauseButton_Click"/>
+                    <Button x:Name="ResetButton"
+                            Content="Reiniciar"
+                            Width="180"
+                            Height="60"
+                            Margin="8"
+                            FontSize="22"
+                            Click="ResetButton_Click"/>
+                </StackPanel>
+
+                <!-- CONFIGURACIÓN DE TIEMPOS -->
+                <GroupBox Header="Configuración de tiempos"
+                          Foreground="#E5E7EB"
+                          FontSize="20"
+                          Margin="0 10 0 0">
+                    <StackPanel Margin="20">
+
+                        <!-- FILA TRABAJO -->
+                        <StackPanel Orientation="Horizontal" Margin="0 8">
+                            <TextBlock Text="Trabajo (min):"
+                                       Width="200"
+                                       Foreground="#E5E7EB"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"/>
+                            <TextBox x:Name="WorkMinutesInput"
+                                     Text="25"
+                                     Width="120"
+                                     Height="40"
+                                     HorizontalContentAlignment="Center"
+                                     FontSize="22"/>
+                        </StackPanel>
+
+                        <!-- FILA DESCANSO -->
+                        <StackPanel Orientation="Horizontal" Margin="0 8">
+                            <TextBlock Text="Descanso (min):"
+                                       Width="200"
+                                       Foreground="#E5E7EB"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"/>
+                            <TextBox x:Name="BreakMinutesInput"
+                                     Text="5"
+                                     Width="120"
+                                     Height="40"
+                                     HorizontalContentAlignment="Center"
+                                     FontSize="22"/>
+                        </StackPanel>
+
+                        <!-- BOTÓN APLICAR TIEMPOS (CENTRADO Y VISIBLE) -->
+                        <Button Content="Aplicar tiempos"
+                                Margin="0 20 0 0"
+                                Width="260"
+                                Height="60"
+                                FontSize="22"
+                                HorizontalAlignment="Center"
+                                Background="#22E4AC"
+                                Foreground="#020617"
+                                Click="ApplyDurations_Click"/>
+                    </StackPanel>
+                </GroupBox>
+
+            </StackPanel>
+
+            <!-- PIÉ CON ESTADÍSTICAS -->
+            <StackPanel Grid.Row="2"
+                        Margin="0 20 0 0"
+                        HorizontalAlignment="Center">
+                <TextBlock x:Name="SessionsText"
+                           Text="Sesiones de trabajo completadas hoy: 0"
+                           Foreground="#9CA3AF"
+                           FontSize="20"
+                           Margin="0 6 0 6"/>
+                <TextBlock x:Name="BreakHistoryText"
+                           Text="Descansos anteriores (min): -"
+                           Foreground="#9CA3AF"
+                           FontSize="20"/>
+            </StackPanel>
+
+        </Grid>
+    </Viewbox>
+
+</Window>
