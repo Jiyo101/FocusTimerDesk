@@ -37,7 +37,7 @@ FocusTimer Desk es una aplicación de escritorio desarrollada en C# y WPF que im
 
 ## 🖼 Capturas
 
-<img width="1419" height="709" alt="image" src="https://github.com/user-attachments/assets/8df5fd9e-5ba5-42a3-8229-6cef6926ffca" />
+<img width="1415" height="705" alt="image" src="https://github.com/user-attachments/assets/db428f85-c02f-4503-ad42-b8907da5354a" />
 
 ---
 
